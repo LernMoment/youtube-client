@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YouTubeClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="550" Width="536" SizeToContent="WidthAndHeight" MaxHeight="790">
+    <StackPanel x:Name="stpaMain">
+        <Grid x:Name="gridKopfzeile" Height="60" >
+            <Label x:Name="labelApi" Content="Api Key: "  HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" FontSize="9" Height="25"/>
+            <Label x:Name="lblApiKey" HorizontalAlignment="Left" Margin="59,10,0,0" VerticalAlignment="Top" FontSize="9" Height="22" />
+            <Label x:Name="lblChannel" Content="Channel ID: "  HorizontalAlignment="Left" Margin="5,26,0,0" VerticalAlignment="Top" FontSize="9" Height="25"/>
+            <Label x:Name="lblChannelId" HorizontalAlignment="Left" Margin="59,26,0,0" VerticalAlignment="Top" FontSize="9" Height="22"/>
+        </Grid>
+        <StackPanel x:Name="stpaDatenUndButtons" Orientation="Horizontal" VerticalAlignment="Stretch" Height="460">
+            <StackPanel x:Name="stpaBlendeLinks" Background="#FFDDDDDD" Margin="1,0,0,0" Width="20" />
+            <Grid x:Name="gridDataGrid" Margin="0,0,0,0">
+                <DataGrid x:Name="dgVideoInfos" Margin="0,0,1,0" ItemsSource="{Binding Videos}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" 
+                          Height="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Video ID" Binding="{Binding VideoId}" MinWidth="55" MaxWidth="400" />
+                        <DataGridTextColumn Header="Name" Binding="{Binding VideoTitel}"  />
+                        <DataGridTextColumn Header="Status" Binding="{Binding VideoStatus}" />
+                        <DataGridTextColumn Header="Upload Datum" Binding="{Binding VideoPublishedAt}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <StackPanel x:Name="stpaButtons" Width="80" Margin="0,0,15,0" Background="#FFDDDDDD">
+                <Button x:Name="btnApiKey" Content="Api Key" Margin="0,10,0,0" MinHeight="30" FontSize="11" Click="btnApiKey_Click" />
+                <Button x:Name="btnChannelId" Content="Channel ID" Margin="0,10,0,0" MinHeight="30" FontSize="11" Click="btnChannelId_Click" />
+                <Button x:Name="btnDownload" Content="Video Infos" Margin="0,10,0,0" MinHeight="30" FontSize="11" Click="btnDownload_Click" />
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </Window>
