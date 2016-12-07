@@ -18,6 +18,11 @@
             <Grid x:Name="gridDataGrid" Margin="0,0,0,0">
                 <DataGrid x:Name="dgVideoInfos" Margin="0,0,1,0" ItemsSource="{Binding Videos}" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" 
                           Height="Auto">
+                    <DataGrid.RowStyle>
+                        <Style>
+                            <EventSetter   Event="DataGridCell.MouseDoubleClick" Handler="dataCell_MouseDoubleClick"/>
+                        </Style>
+                    </DataGrid.RowStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Video ID" Binding="{Binding VideoId}" MinWidth="55" MaxWidth="400" />
                         <DataGridTextColumn Header="Name" Binding="{Binding VideoTitel}"  />

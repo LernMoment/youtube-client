@@ -60,6 +60,15 @@ namespace YouTubeClient
             }
         }
 
+        void dataCell_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            VideoDetails videos = new VideoDetails();
+            videos.Show();
+            //DataGridRow row = e.Source as DataGridRow;
+            //VideoDetail videoDetail = new VideoDetail((Vhs)row.Item);
+            //videoDetail.Show();
+        }
+
 
     }
 }
